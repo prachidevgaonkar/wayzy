@@ -4,7 +4,9 @@ from pydantic import BaseModel
 import logging
 import os
 from dotenv import load_dotenv
+from src.backend.backend import generate_itinerary
 
+# Load environment variables from .env file
 load_dotenv()
 
 logging.basicConfig(level=logging.INFO)
@@ -31,7 +33,7 @@ def read_root():
 def generate_response(request: RequestPayload):
     """Generate a response from the LLM model."""
     logging.info(f"Received request: {request}")    
-    response = {}
+    response = generate_itinerary()
     return {"response": response}
 
 if __name__ == "__main__":
