@@ -27,6 +27,7 @@ app = FastAPI(
 
 @app.get("/")
 def read_root():
+    """ Root endpoint to check if the server is running."""
     return {"version": os.getenv("WEB_SERVER_VERSION")}
 
 @app.post("/api/generate")
